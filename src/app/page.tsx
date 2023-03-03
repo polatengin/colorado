@@ -31,6 +31,9 @@ export default function Home() {
         </p>
       </div>
       <div id="map" style={{width: "100%", minHeight: "600px"}}></div>
+      <div id="address_form">
+        Address: <input type="text" />
+      </div>
     </main>
   )
 }
