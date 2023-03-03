@@ -20,6 +20,12 @@ export default function Home() {
           center: latlng,
           zoom: 16,
         });
+
+        const marker = new google.maps.Marker({
+          position: latlng,
+          map: map,
+          visible: false,
+        });
   });
 
   return (
