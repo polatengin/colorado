@@ -26,6 +26,16 @@ export default function Home() {
           map: map,
           visible: false,
         });
+
+        const geocoder = new google.maps.Geocoder();
+        geocoder.geocode({ location: latlng }, (results, status) => {
+          if (status === "OK") {
+            if (results) {
+              const infowindow = new google.maps.InfoWindow({ content: results[0].formatted_address });
+              infowindow.open(map, marker);
+            }
+          }
+        });
   });
 
   return (
