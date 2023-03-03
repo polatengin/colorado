@@ -2,40 +2,10 @@
 
 import styles from './page.module.css'
 
-import { Loader } from "@googlemaps/js-api-loader"
 import { useEffect } from 'react';
 
 export default function Home() {
   useEffect(() => {
-    const loader = new Loader({
-      apiKey: "",
-      version: "weekly",
-    });
-
-    loader.load().then(() => {
-      navigator.geolocation.getCurrentPosition((position) => {
-        const latlng = { lat: position.coords.latitude, lng: position.coords.longitude }
-
-        const map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
-          center: latlng,
-          zoom: 16,
-        });
-
-        const marker = new google.maps.Marker({
-          position: latlng,
-          map: map,
-          visible: false,
-        });
-
-        const geocoder = new google.maps.Geocoder();
-        geocoder.geocode({ location: latlng }, (results, status) => {
-          if (status === "OK") {
-            if (results) {
-              const infowindow = new google.maps.InfoWindow({ content: results[0].formatted_address });
-              infowindow.open(map, marker);
-            }
-          }
-        });
   });
 
   return (
