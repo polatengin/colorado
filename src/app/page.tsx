@@ -13,7 +13,11 @@ export default function Home() {
     });
 
     loader.load().then(() => {
+      navigator.geolocation.getCurrentPosition((position) => {
+        const latlng = { lat: position.coords.latitude, lng: position.coords.longitude }
+
         const map = new google.maps.Map(document.getElementById("map") as HTMLElement, {
+          center: latlng,
           zoom: 16,
         });
   });
