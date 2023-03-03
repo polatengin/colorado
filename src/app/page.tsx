@@ -1,5 +1,8 @@
+"use client";
+
 import styles from './page.module.css'
 
+import { Loader } from "@googlemaps/js-api-loader"
 export default function Home() {
   return (
     <main className={styles.main}>
